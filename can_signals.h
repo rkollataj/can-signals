@@ -2,6 +2,7 @@
 #define __CAN_SIGNALS_H
 
 #include <linux/can.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 enum CanSignalType {
@@ -21,10 +22,12 @@ struct CanSignal {
     enum CanSignalType type;
 };
 
-extern struct CanSignal geniviDemoSignals[];
+typedef void (*signalUInt8Clbk)(const char *name, uint32_t id, uint8_t value);
+typedef void (*signalUInt16Clbk)(const char *name, uint32_t id, uint16_t value);
+typedef void (*signalBoolClbk)(const char *name, uint32_t id, bool value);
+typedef void (*siglog_t)(int priority, const char* format, ...);
 
-extern uint8_t extractSignalUInt8(const struct CanSignal *sigDesc, const struct can_frame* frame);
-extern uint16_t extractSignalUInt16(const struct CanSignal *sigDesc, const struct can_frame* frame);
-extern bool extractSignalBool(const struct CanSignal *sigDesc, const struct can_frame* frame);
+bool initCanSignals(const struct CanSignal *signals, uint32_t signals_cnt, siglog_t siglog, signalBoolClbk boolClbk, signalUInt8Clbk uint8Clbk, signalUInt16Clbk uint16Clbk);
+void processCanFrame(const struct can_frame* frame);
 
 #endif /* !__CAN_SIGNALS_H */

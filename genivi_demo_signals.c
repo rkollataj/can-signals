@@ -104,3 +104,4 @@ struct CanSignal geniviDemoSignals[] = {
     },
 };
 
+uint32_t geniviDemoSignals_cnt = sizeof(geniviDemoSignals)/sizeof(geniviDemoSignals[0]);
