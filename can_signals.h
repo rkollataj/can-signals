@@ -27,7 +27,7 @@ typedef void (*signalUInt16Clbk)(const char *name, uint32_t id, uint16_t value);
 typedef void (*signalBoolClbk)(const char *name, uint32_t id, bool value);
 typedef void (*siglog_t)(int priority, const char* format, ...);
 
-bool initCanSignals(const struct CanSignal *signals, uint32_t signals_cnt, siglog_t siglog, signalBoolClbk boolClbk, signalUInt8Clbk uint8Clbk, signalUInt16Clbk uint16Clbk);
+bool initCanSignals(const struct CanSignal *sig, uint32_t signals_cnt, siglog_t siglog, signalBoolClbk boolClbk, signalUInt8Clbk uint8Clbk, signalUInt16Clbk uint16Clbk);
 void processCanFrame(const struct can_frame* frame);
 
 #endif /* !__CAN_SIGNALS_H */
