@@ -105,3 +105,12 @@ struct CanSignal geniviDemoSignals[] = {
 };
 
 uint32_t geniviDemoSignals_cnt = sizeof(geniviDemoSignals)/sizeof(geniviDemoSignals[0]);
+
+struct can_frame geniviDemoFrames[] = {
+    {
+        .can_id = 0x111
+    }
+};
+
+uint32_t geniviDemoFramesCnt = sizeof(geniviDemoFrames)/sizeof(geniviDemoFrames[0]);
+
