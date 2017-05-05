@@ -19,7 +19,7 @@ struct CanSignal geniviDemoSignals[] = {
         .start = 8,
         .end = 15,
         .min = 0,
-        .max = 10,
+        .max = 100,
         .type = CAN_SIGNAL_UINT8
     },
     {
@@ -58,8 +58,8 @@ struct CanSignal geniviDemoSignals[] = {
         .sigName = "vehicle.battery",
         .start = 32,
         .end = 39,
-        .min = 10,
-        .max = 14,
+        .min = 100,
+        .max = 140,
         .type = CAN_SIGNAL_UINT8
     },
     {
